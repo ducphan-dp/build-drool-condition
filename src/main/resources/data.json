@@ -1,0 +1,43 @@
+[
+  {
+    "id":1,
+    "itemCondition": [
+      {
+        "items": [
+          { "type": "normal", "condition": "", "left": "Customer.age", "operator": ">=", "right": "18" },
+          { "type": "normal", "condition": "And", "left": "Finance.income", "operator": ">=", "right": "10,000,000" }
+        ],
+        "condition": ""
+      },
+      {
+        "items": [
+          { "type": "normal", "condition": "", "left": "Customer.edu", "operator": "is", "right": "bachelor’s degree" },
+          {
+            "itemCondition": [
+              {
+                "condition": "And",
+                "items": [
+                  { "type": "normal", "condition": "", "left": "Customer.edu", "operator": "is", "right": "bachelor’s degree" },
+                  { "type": "formular", "condition": "And", "left": "Finance.income + user.income", "operator": ">=", "right": "user.payment + 110000" }
+                ]
+              }
+            ]
+          }
+        ],
+        "condition": "OR"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "itemCondition": [
+      {
+        "items": [
+          { "type": "normal", "condition": "", "left": "Customer.edu", "operator": "is", "right": "bachelor’s degree" },
+          { "type": "formular", "condition": "And", "left": "Finance.income + user.income", "operator": ">=", "right": "user.payment + 110000" }
+        ],
+        "condition": ""
+      }
+    ]
+  }
+]
